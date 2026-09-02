@@ -11,156 +11,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #050508;
-      --ink: #f5f2eb;
-      --muted: #a8a29a;
-      --gold: #e8c07d;
-      --line: rgba(232,192,125,.28);
-      --soft: rgba(255,255,255,.05);
+      --bg: #050508; --ink: #f5f2eb; --muted: #a8a29a; --gold: #e8c07d;
+      --line: rgba(232,192,125,.28); --soft: rgba(255,255,255,.05);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--ink);
-      background: var(--bg); overflow-x: hidden;
-    }
+    body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
     .wrap { position: relative; z-index: 1; }
-    .nav {
-      position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 1.4rem; backdrop-filter: blur(14px); background: rgba(5,5,8,.4);
-      border-bottom: 1px solid transparent;
-    }
+    .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.4rem; backdrop-filter: blur(14px); background: rgba(5,5,8,.4); border-bottom: 1px solid transparent; }
     .nav.scrolled { border-bottom-color: var(--line); }
     .brand { font-size: .72rem; letter-spacing: .16em; font-weight: 700; color: var(--gold); }
     .nav-links a { color: var(--muted); font-size: .8rem; margin-left: 1rem; }
     .nav-links a:hover { color: var(--ink); }
-    .hero {
-      min-height: 100vh; max-width: 1180px; margin: 0 auto; padding: 6.5rem 1.4rem 3rem;
-      display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem; align-items: center;
-    }
-    .open {
-      display: inline-flex; align-items: center; gap: .45rem; border: 1px solid var(--line);
-      border-radius: 999px; padding: .35rem .8rem; font-size: .7rem; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--gold); background: rgba(232,192,125,.08);
-    }
+    .hero { min-height: 100vh; max-width: 1180px; margin: 0 auto; padding: 6.5rem 1.4rem 3rem; display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem; align-items: center; }
+    .open { display: inline-flex; align-items: center; gap: .45rem; border: 1px solid var(--line); border-radius: 999px; padding: .35rem .8rem; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); background: rgba(232,192,125,.08); }
     .open i { width: .5rem; height: .5rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 12px #22c55e; }
-    .name {
-      margin: 1rem 0 .5rem; font-size: clamp(3.1rem, 8.5vw, 5.6rem);
-      font-weight: 800; letter-spacing: -.045em; line-height: .92; text-transform: uppercase;
-    }
+    .name { margin: 1rem 0 .5rem; font-size: clamp(3.1rem, 8.5vw, 5.6rem); font-weight: 800; letter-spacing: -.045em; line-height: .92; text-transform: uppercase; }
     .name span { display: block; }
-    .role {
-      color: var(--gold); font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
-    }
+    .role { color: var(--gold); font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
     .employer { color: var(--ink); font-size: .92rem; margin-top: .45rem; font-weight: 600; }
     .sub { color: var(--muted); max-width: 36rem; line-height: 1.7; margin: .85rem 0 1.25rem; }
     .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.4rem; }
-    .tag {
-      border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: .35rem .7rem;
-      font-size: .7rem; letter-spacing: .06em; color: #e7e5e4; background: var(--soft);
-    }
+    .tag { border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: .35rem .7rem; font-size: .7rem; letter-spacing: .06em; color: #e7e5e4; background: var(--soft); }
     .cta { display: flex; gap: .7rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
-      padding: .85rem 1.2rem; font-weight: 600; font-size: .88rem; border: 1px solid rgba(255,255,255,.28);
-      transition: .2s ease;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: .85rem 1.2rem; font-weight: 600; font-size: .88rem; border: 1px solid rgba(255,255,255,.28); transition: .2s ease; }
     .btn-primary { background: transparent; }
     .btn-primary:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-solid {
-      background: linear-gradient(135deg, #f59e0b, #b45309); border-color: transparent; color: #111;
-    }
-    .btn-solid:hover { filter: brightness(1.06); transform: translateY(-1px); }
-    .stage {
-      position: relative; border-radius: 1.4rem; overflow: hidden; min-height: 460px;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 70% 20%, rgba(245,158,11,.18), transparent 40%),
-        linear-gradient(160deg, #17151a, #0a0a0f);
-      box-shadow: 0 30px 90px rgba(0,0,0,.55);
-    }
-    .stage img {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top;
-      filter: saturate(1.02) contrast(1.04);
-    }
-    .stage::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 45%, rgba(5,5,8,.75) 100%),
-                  radial-gradient(circle at 30% 20%, rgba(232,192,125,.12), transparent 40%);
-      pointer-events: none;
-    }
-    .stage .hud {
-      position: absolute; left: 1rem; right: 1rem; bottom: 1rem; z-index: 2;
-      padding: .85rem 1rem; border-radius: .9rem; background: rgba(0,0,0,.5);
-      border: 1px solid var(--line); backdrop-filter: blur(10px); font-size: .78rem; color: var(--muted);
-    }
+    .btn-solid { background: linear-gradient(135deg, #f59e0b, #b45309); border-color: transparent; color: #111; }
+    .stage { position: relative; border-radius: 1.4rem; overflow: hidden; min-height: 460px; border: 1px solid var(--line); background: radial-gradient(circle at 70% 20%, rgba(245,158,11,.18), transparent 40%), linear-gradient(160deg, #17151a, #0a0a0f); box-shadow: 0 30px 90px rgba(0,0,0,.55); }
+    .stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .stage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(5,5,8,.75) 100%); pointer-events: none; }
+    .stage .hud { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; z-index: 2; padding: .85rem 1rem; border-radius: .9rem; background: rgba(0,0,0,.5); border: 1px solid var(--line); backdrop-filter: blur(10px); font-size: .78rem; color: var(--muted); }
     .stage .hud b { display: block; color: var(--ink); margin-bottom: .15rem; }
     .stack { max-width: 920px; margin: 0 auto; padding: 1rem 1.4rem 5rem; display: grid; gap: 1.05rem; }
-    .card {
-      position: relative; border-radius: 1.2rem; padding: 1.55rem 1.4rem 1.4rem;
-      background: linear-gradient(165deg, rgba(48,36,24,.55), rgba(10,10,14,.9));
-      border: 1px solid var(--line); box-shadow: 0 18px 55px rgba(0,0,0,.4); overflow: hidden;
-    }
-    .card::before {
-      content: ""; position: absolute; inset: -35% auto auto -15%; width: 260px; height: 170px;
-      background: radial-gradient(circle, rgba(245,158,11,.2), transparent 70%); pointer-events: none;
-    }
+    .card { position: relative; border-radius: 1.2rem; padding: 1.55rem 1.4rem 1.4rem; background: linear-gradient(165deg, rgba(48,36,24,.55), rgba(10,10,14,.9)); border: 1px solid var(--line); box-shadow: 0 18px 55px rgba(0,0,0,.4); overflow: hidden; }
     .card .kicker { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .45rem; }
-    .card h2 {
-      margin: 0 0 .8rem; font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.02em; font-weight: 800;
-    }
+    .card h2 { margin: 0 0 .8rem; font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.02em; font-weight: 800; }
     .card p { color: var(--muted); line-height: 1.7; margin: 0 0 1rem; max-width: 48rem; }
     .card p .hi { color: #fde68a; font-weight: 700; }
     .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .chip {
-      border-radius: 999px; border: 1px solid rgba(255,255,255,.14); padding: .32rem .68rem;
-      font-size: .7rem; letter-spacing: .04em; color: #e7e5e4; background: rgba(255,255,255,.04);
-    }
+    .chip { border-radius: 999px; border: 1px solid rgba(255,255,255,.14); padding: .32rem .68rem; font-size: .7rem; color: #e7e5e4; background: rgba(255,255,255,.04); }
     .skills { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 1.2rem; }
     .skills h3 { margin: 0 0 .4rem; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
-    .job {
-      display: grid; grid-template-columns: 8.4rem 1fr; gap: .85rem; padding: .95rem 0;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
+    .job { display: grid; grid-template-columns: 8.4rem 1fr; gap: .85rem; padding: .95rem 0; border-top: 1px solid rgba(255,255,255,.08); }
     .job:first-child { border-top: 0; padding-top: 0; }
-    .job .when { color: var(--gold); font-size: .75rem; letter-spacing: .02em; }
+    .job .when { color: var(--gold); font-size: .75rem; }
     .job h3 { margin: 0 0 .15rem; font-size: 1.02rem; }
     .job .meta { color: var(--muted); font-size: .85rem; }
-    .job ul { margin: .45rem 0 0; padding: 0 0 0 1.05rem; color: var(--muted); }
-    .job li { margin: .28rem 0; font-size: .88rem; line-height: 1.5; }
+    .job ul { margin: .4rem 0 0; padding: 0 0 0 1.05rem; color: var(--muted); }
+    .job li { margin: .22rem 0; font-size: .88rem; line-height: 1.5; }
     .metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .7rem; }
-    .metric {
-      text-align: center; padding: 1rem .4rem; border-radius: .85rem; background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.06);
-    }
-    .metric b {
-      display: block; font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: .2rem;
-      text-shadow: 0 0 22px rgba(245,158,11,.4);
-    }
-    .metric span { color: var(--muted); font-size: .68rem; letter-spacing: .04em; text-transform: uppercase; }
-    .highlights { margin: 0; padding: 0 0 0 1.1rem; color: var(--muted); }
-    .highlights li { margin: .4rem 0; line-height: 1.5; }
+    .metric { text-align: center; padding: 1rem .4rem; border-radius: .85rem; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.06); }
+    .metric b { display: block; font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: .2rem; }
+    .metric span { color: var(--muted); font-size: .68rem; text-transform: uppercase; }
     .projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .7rem; }
-    .proj {
-      border: 1px solid rgba(255,255,255,.08); border-radius: .85rem; padding: .95rem;
-      background: rgba(0,0,0,.24); transition: .2s ease;
-    }
-    .proj:hover { border-color: var(--line); transform: translateY(-2px); }
+    .proj { border: 1px solid rgba(255,255,255,.08); border-radius: .85rem; padding: .95rem; background: rgba(0,0,0,.24); }
+    .proj:hover { border-color: var(--line); }
     .proj h3 { margin: 0 0 .3rem; font-size: .98rem; }
     .proj p { margin: 0; font-size: .85rem; color: var(--muted); line-height: 1.45; }
     footer { text-align: center; color: #6b6560; font-size: .78rem; padding: 2rem 1rem 2.4rem; border-top: 1px solid rgba(255,255,255,.06); }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .stage { min-height: 360px; order: -1; }
-      .skills, .metrics, .projects { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 560px) {
-      .skills, .metrics, .projects { grid-template-columns: 1fr; }
-      .job { grid-template-columns: 1fr; gap: .2rem; }
-      .nav-links { display: none; }
-    }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .stage { min-height: 360px; order: -1; } .skills, .metrics, .projects { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .skills, .metrics, .projects { grid-template-columns: 1fr; } .job { grid-template-columns: 1fr; } .nav-links { display: none; } }
   </style>
 </head>
 <body>
@@ -171,15 +84,11 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#skills">Skills</a>
         <a href="#education">Education</a>
-        <a href="#numbers">Impact</a>
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
-
     <main id="top">
       <section class="hero">
         <div>
@@ -187,13 +96,9 @@
           <h1 class="name"><span>SAI SIRI</span><span>BANDARU</span></h1>
           <div class="role">Financial Analyst, FP&A, Operations Finance</div>
           <div class="employer">PNC Financial Services</div>
-          <p class="sub">I sit between operations and the P&L. A lot of FP&A work stops at what happened last month. I take the next step: why volume or cost moved, what that does to staffing next quarter, and whether a capital ask still holds. That is the work I do now at PNC, and it is how I built the models on this page.</p>
+          <p class="sub">I sit between operations and the P&L. I explain why volume or cost moved, what that means for staffing next quarter, and whether a capital ask still holds. That is the work I do at PNC.</p>
           <div class="tags">
-            <span class="tag">EXCEL</span>
-            <span class="tag">POWER BI</span>
-            <span class="tag">TABLEAU</span>
-            <span class="tag">NETSUITE</span>
-            <span class="tag">SAP / ORACLE</span>
+            <span class="tag">EXCEL</span><span class="tag">POWER BI</span><span class="tag">TABLEAU</span><span class="tag">NETSUITE</span><span class="tag">SAP / ORACLE</span>
           </div>
           <div class="cta">
             <a class="btn btn-solid" href="https://saisiri-bandaru.github.io/Sai_Siri_Bandaru_Analyst_Portfolio.pdf">Recruiter packet</a>
@@ -202,224 +107,61 @@
         </div>
         <aside class="stage" aria-label="Portrait">
           <img src="hero.jpg" alt="Sai Siri Bandaru" />
-          <div class="hud">
-            <b>Sai Siri Bandaru</b>
-            Financial Analyst. Open to work across the USA.
-          </div>
+          <div class="hud"><b>Sai Siri Bandaru</b>Financial Analyst. Open to work across the USA.</div>
         </aside>
       </section>
-
       <div class="stack">
         <article class="card" id="about">
           <div class="kicker">About</div>
           <h2>About</h2>
-          <p>
-            I started in accounting and finance in India, then came to the United States for a STEM master's in Business Analytics at the University of New Haven. The point was not another degree on paper. It was to get better at turning messy operating data into a pack a leader can use in the meeting.
-          </p>
-          <p>
-            I have <span class="hi">4+ years</span> of that work across banking and operating businesses. At <span class="hi">PNC</span> I support operations finance and helped drive a <span class="hi">2% throughput lift</span>. Before that I owned budget and scholarship forecasts at upGrad, sales MIS and working capital at BYJU'S, and EBITDA and leverage reporting at BSNL. I prefer a model someone else can inherit over a slide that dies after the meeting.
-          </p>
-          <div class="chips">
-            <span class="chip">FP&A</span>
-            <span class="chip">Ops finance</span>
-            <span class="chip">Forecasting</span>
-            <span class="chip">Variance</span>
-            <span class="chip">Cash and working capital</span>
-            <span class="chip">Beta Gamma Sigma</span>
-          </div>
+          <p>Accounting and finance in India, then a STEM MS in Business Analytics at the University of New Haven. <span class="hi">4+ years</span> of FP&A style work. Currently operations finance at <span class="hi">PNC</span>, where I supported a <span class="hi">2% throughput lift</span>. Earlier: upGrad, BYJU'S, and BSNL.</p>
+          <div class="chips"><span class="chip">FP&A</span><span class="chip">Ops finance</span><span class="chip">Forecasting</span><span class="chip">Variance</span><span class="chip">Cash</span></div>
         </article>
-
         <article class="card" id="experience">
           <div class="kicker">Experience</div>
           <h2>Experience</h2>
-
-          <div class="job">
-            <div class="when">Jun 2025 to present</div>
-            <div>
-              <h3>Financial Analyst</h3>
-              <div class="meta">PNC Financial Services</div>
-              <ul>
-                <li>Supported a 2% throughput lift by pairing process work with unit cost and volume analysis.</li>
-                <li>Built executive KPI views and production volume models used in weekly operations reviews.</li>
-                <li>Wrote monthly variance commentary and ran quarterly staffing reforecasts with operations.</li>
-                <li>Standardized month end templates so packs could be reused instead of rebuilt.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="job">
-            <div class="when">Apr 2022 to Jul 2023</div>
-            <div>
-              <h3>Financial Analyst</h3>
-              <div class="meta">upGrad</div>
-              <ul>
-                <li>Owned budget vs actual packs and tuition, auxiliary, and scholarship forecasts.</li>
-                <li>Automated reporting out of NetSuite and Banner so close packs landed faster.</li>
-                <li>Built Power BI and Tableau views for non finance operators.</li>
-                <li>Ran NPV and IRR on capital projects and supported grant compliance reporting.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="job">
-            <div class="when">Jan 2021 to Mar 2022</div>
-            <div>
-              <h3>Sales Analyst</h3>
-              <div class="meta">BYJU'S</div>
-              <ul>
-                <li>Built department budgets and tracked standard cost variance against plan.</li>
-                <li>Monitored AP, AR, and working capital so cash and collections stayed visible.</li>
-                <li>Prepared ROI and payback cases and supported dynamic pricing analysis.</li>
-                <li>Delivered monthly MIS on margin and capacity for sales leadership.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="job">
-            <div class="when">Jan 2019 to Aug 2019</div>
-            <div>
-              <h3>Junior Financial Analyst</h3>
-              <div class="meta">BSNL</div>
-              <ul>
-                <li>Tracked overhead and labor variance for leadership reviews.</li>
-                <li>Maintained daily cash visibility for procurement and capex.</li>
-                <li>Produced EBITDA and leverage MIS for senior finance.</li>
-                <li>Pulled and cleaned source data from SAP and Oracle ERP.</li>
-              </ul>
-            </div>
-          </div>
+          <div class="job"><div class="when">Jun 2025 to present</div><div><h3>Financial Analyst</h3><div class="meta">PNC Financial Services</div><ul>
+            <li>Supported a 2% throughput lift through process and unit cost work.</li>
+            <li>Built executive KPIs, volume models, and monthly variance commentary.</li>
+            <li>Ran quarterly staffing reforecasts with operations.</li>
+          </ul></div></div>
+          <div class="job"><div class="when">Apr 2022 to Jul 2023</div><div><h3>Financial Analyst</h3><div class="meta">upGrad</div><ul>
+            <li>Owned budget vs actual packs and scholarship forecasts.</li>
+            <li>Automated NetSuite and Banner reporting.</li>
+            <li>Ran NPV and IRR on capital projects.</li>
+          </ul></div></div>
+          <div class="job"><div class="when">Jan 2021 to Mar 2022</div><div><h3>Sales Analyst</h3><div class="meta">BYJU'S</div><ul>
+            <li>Department budgets, standard cost variance, and monthly MIS.</li>
+            <li>AP, AR, and working capital visibility for sales leadership.</li>
+            <li>ROI and payback cases for pricing decisions.</li>
+          </ul></div></div>
+          <div class="job"><div class="when">Jan 2019 to Aug 2019</div><div><h3>Junior Financial Analyst</h3><div class="meta">BSNL</div><ul>
+            <li>Overhead and labor variance, plus daily cash for capex.</li>
+            <li>EBITDA and leverage MIS from SAP and Oracle.</li>
+          </ul></div></div>
         </article>
-
-        <article class="card" id="achievements">
-          <div class="kicker">Achievements</div>
-          <h2>Selected results</h2>
-          <ul class="highlights">
-            <li>Supported a 2% throughput improvement at PNC by connecting process changes to unit cost and volume.</li>
-            <li>Turned monthly variance into a repeatable pack with commentary operations could act on the same week.</li>
-            <li>Ran quarterly staffing reforecasts so headcount followed volume instead of last year's plan.</li>
-            <li>Cut manual close work at upGrad by automating NetSuite and Banner extracts into standard templates.</li>
-            <li>Put NPV and IRR on capital asks so leadership had a defendable number, not a slide claim.</li>
-            <li>Kept working capital, AP, and AR visible at BYJU'S so margin and capacity reviews had current cash context.</li>
-            <li>Delivered EBITDA and leverage reporting at BSNL from SAP and Oracle source data.</li>
-            <li>Inducted into Beta Gamma Sigma, the AACSB honor society for top graduate students at accredited business schools.</li>
-            <li>Featured by AACSB Best Business Schools and by the University of New Haven Alumni Spotlight, Class of 2025.</li>
-            <li>Merit Scholarship, Academic Excellence Award, June 2019, during the MBA.</li>
-          </ul>
-        </article>
-
-        <article class="card" id="skills">
-          <div class="kicker">Skills</div>
-          <h2>Skills</h2>
-          <div class="skills">
-            <div>
-              <h3>In the models</h3>
-              <div class="chips">
-                <span class="chip">Advanced Excel</span><span class="chip">Variance analysis</span>
-                <span class="chip">Driver forecasting</span><span class="chip">DCF, NPV, IRR</span>
-              </div>
-            </div>
-            <div>
-              <h3>On the job</h3>
-              <div class="chips">
-                <span class="chip">Power BI</span><span class="chip">Tableau</span>
-                <span class="chip">Executive dashboards</span><span class="chip">KPI design</span>
-              </div>
-            </div>
-            <div>
-              <h3>Systems</h3>
-              <div class="chips">
-                <span class="chip">NetSuite</span><span class="chip">SAP</span>
-                <span class="chip">Oracle ERP</span><span class="chip">Banner</span>
-              </div>
-            </div>
-            <div>
-              <h3>Data</h3>
-              <div class="chips">
-                <span class="chip">SQL (on the job)</span><span class="chip">Pivots</span>
-                <span class="chip">Lookups</span><span class="chip">Reporting automation</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
         <article class="card" id="education">
           <div class="kicker">Education</div>
           <h2>Education</h2>
-          <div class="job">
-            <div class="when">Aug 2023 to May 2025</div>
-            <div>
-              <h3>M.S. Business Analytics</h3>
-              <div class="meta">University of New Haven, Pompea College of Business (STEM)</div>
-              <ul>
-                <li>Inducted into Beta Gamma Sigma, the AACSB honor society for the top of the graduate class.</li>
-                <li>Featured by AACSB Best Business Schools while in the program.</li>
-                <li>Named in the University of New Haven Alumni Spotlight, Class of 2025.</li>
-                <li>Applied work in forecasting, dashboarding, and decision support.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="job">
-            <div class="when">Jul 2018 to Dec 2020</div>
-            <div>
-              <h3>MBA, Accounting and Finance</h3>
-              <div class="meta">JNTU Kakinada</div>
-              <ul>
-                <li>Merit Scholarship, Academic Excellence Award, June 2019.</li>
-                <li>Graduate work in accounting, corporate finance, and management reporting.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="job">
-            <div class="when">Aug 2015 to May 2018</div>
-            <div>
-              <h3>Bachelor's, Accounting and Finance</h3>
-              <div class="meta">Acharya Nagarjuna University</div>
-              <ul>
-                <li>Undergraduate training in financial accounting, costing, and analysis.</li>
-              </ul>
-            </div>
-          </div>
+          <div class="job"><div class="when">Aug 2023 to May 2025</div><div><h3>M.S. Business Analytics</h3><div class="meta">University of New Haven (STEM) · Beta Gamma Sigma</div></div></div>
+          <div class="job"><div class="when">Jul 2018 to Dec 2020</div><div><h3>MBA, Accounting and Finance</h3><div class="meta">JNTU Kakinada · Merit Scholarship, Academic Excellence Award (2019)</div></div></div>
+          <div class="job"><div class="when">Aug 2015 to May 2018</div><div><h3>Bachelor's, Accounting and Finance</h3><div class="meta">Acharya Nagarjuna University</div></div></div>
         </article>
-
-        <article class="card" id="numbers">
-          <div class="kicker">Impact</div>
-          <h2>Impact</h2>
-          <div class="metrics">
-            <div class="metric"><b>4+</b><span>Years experience</span></div>
-            <div class="metric"><b>2%</b><span>Throughput lift at PNC</span></div>
-            <div class="metric"><b>BGS</b><span>Beta Gamma Sigma</span></div>
-            <div class="metric"><b>USA</b><span>Open to work nationwide</span></div>
-          </div>
-        </article>
-
         <article class="card" id="work">
           <div class="kicker">Work</div>
           <h2>Featured models</h2>
-          <p>Yellow cells with blue font are inputs. Change a driver and the output tab should move. Sample figures are fictional and use Northline Consumer Products.</p>
+          <p>Yellow cells with blue font are inputs. Change a driver and the output tab should move.</p>
           <div class="projects">
-            <a class="proj" href="https://github.com/saisiri-bandaru/fpna-variance-dashboard" target="_blank" rel="noopener">
-              <h3>FP&A variance dashboard</h3>
-              <p>Actual vs budget vs forecast. Splits a margin miss into rate and volume.</p>
-            </a>
-            <a class="proj" href="https://github.com/saisiri-bandaru/cost-accounting-workbook" target="_blank" rel="noopener">
-              <h3>Cost accounting workbook</h3>
-              <p>Material, labor, and overhead variances. Purchasing vs the floor.</p>
-            </a>
-            <a class="proj" href="https://github.com/saisiri-bandaru/thirteen-week-cash-forecast" target="_blank" rel="noopener">
-              <h3>13 week cash forecast</h3>
-              <p>Receipts and disbursements. Payroll and vendor risk if collections slip a week.</p>
-            </a>
-            <a class="proj" href="https://github.com/saisiri-bandaru/driver-based-forecast" target="_blank" rel="noopener">
-              <h3>Driver based forecast</h3>
-              <p>Volume, price, and cost drivers tied to P&L vs plan.</p>
-            </a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/fpna-variance-dashboard" target="_blank" rel="noopener"><h3>FP&A variance dashboard</h3><p>Actual vs budget vs forecast. Rate vs volume.</p></a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/cost-accounting-workbook" target="_blank" rel="noopener"><h3>Cost accounting workbook</h3><p>Material, labor, and overhead. Purchasing vs the floor.</p></a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/thirteen-week-cash-forecast" target="_blank" rel="noopener"><h3>13 week cash forecast</h3><p>Payroll and vendor risk if collections slip a week.</p></a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/driver-based-forecast" target="_blank" rel="noopener"><h3>Driver based forecast</h3><p>Volume, price, and cost tied to P&L vs plan.</p></a>
           </div>
         </article>
-
         <article class="card" id="contact">
           <div class="kicker">Contact</div>
           <h2>Contact</h2>
-          <p>Open to FP&A, operations finance, and analytics heavy finance roles across the United States.</p>
+          <p>Open to FP&A and operations finance roles across the United States.</p>
           <div class="chips" style="margin-bottom:1.1rem">
             <a class="chip" href="mailto:bandarusaisiri1207@gmail.com">bandarusaisiri1207@gmail.com</a>
             <a class="chip" href="tel:+12035339355">203.533.9355</a>
@@ -433,37 +175,15 @@
         </article>
       </div>
     </main>
-    <footer>2026 Sai Siri Bandaru. FP&A and operations finance.</footer>
+    <footer>2026 Sai Siri Bandaru</footer>
   </div>
   <script>
     const nav = document.getElementById('nav');
     addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
-
-    const c = document.getElementById('particles');
-    const ctx = c.getContext('2d');
-    let w, h, dots;
-    function resize() {
-      w = c.width = innerWidth; h = c.height = innerHeight;
-      dots = Array.from({ length: 90 }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        r: Math.random() * 1.6 + 0.3,
-        v: Math.random() * 0.25 + 0.05,
-        a: Math.random() * 0.7 + 0.2
-      }));
-    }
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      for (const d of dots) {
-        d.y -= d.v; if (d.y < -4) { d.y = h + 4; d.x = Math.random() * w; }
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(232,192,125,${d.a})`;
-        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      requestAnimationFrame(tick);
-    }
-    addEventListener('resize', resize);
-    resize(); tick();
+    const c = document.getElementById('particles'); const ctx = c.getContext('2d'); let w, h, dots;
+    function resize() { w = c.width = innerWidth; h = c.height = innerHeight; dots = Array.from({ length: 70 }, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.6 + 0.3, v: Math.random() * 0.25 + 0.05, a: Math.random() * 0.7 + 0.2 })); }
+    function tick() { ctx.clearRect(0, 0, w, h); for (const d of dots) { d.y -= d.v; if (d.y < -4) { d.y = h + 4; d.x = Math.random() * w; } ctx.beginPath(); ctx.fillStyle = `rgba(232,192,125,${d.a})`; ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill(); } requestAnimationFrame(tick); }
+    addEventListener('resize', resize); resize(); tick();
   </script>
 </body>
 </html>
