@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Siri Bandaru — Cinematic Portfolio</title>
+  <meta name="description" content="Cinematic portfolio for Sai Siri Bandaru — Financial Analyst, FP&A and operations finance." />
+  <meta name="theme-color" content="#07070c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07070c;
+      --panel: rgba(18,18,24,.72);
+      --ink: #f4f1ea;
+      --muted: #a7a29a;
+      --gold: #e8c07d;
+      --amber: #f59e0b;
+      --line: rgba(232,192,125,.22);
+      --soft: rgba(255,255,255,.06);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--ink);
+      background: radial-gradient(1200px 700px at 70% 20%, rgba(245,158,11,.08), transparent 55%), var(--bg);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    #stars {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,.7), transparent),
+        radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,.45), transparent),
+        radial-gradient(1.2px 1.2px at 65% 25%, rgba(255,255,255,.55), transparent),
+        radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,.4), transparent),
+        radial-gradient(1.4px 1.4px at 10% 80%, rgba(232,192,125,.55), transparent),
+        radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,.5), transparent);
+      background-size: 100% 100%;
+      animation: drift 40s linear infinite;
+      opacity: .85;
+    }
+    @keyframes drift {
+      from { transform: translateY(0); }
+      to { transform: translateY(-40px); }
+    }
+    .wrap { position: relative; z-index: 1; }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.5rem; backdrop-filter: blur(12px);
+      background: rgba(7,7,12,.35); border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled { border-bottom-color: var(--line); }
+    .brand { font-weight: 700; letter-spacing: .14em; font-size: .78rem; color: var(--gold); }
+    .nav a { color: var(--muted); font-size: .82rem; margin-left: 1.1rem; }
+    .nav a:hover { color: var(--ink); }
+    .hero {
+      min-height: 100vh; display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem;
+      align-items: center; padding: 6.5rem 1.5rem 3rem; max-width: 1180px; margin: 0 auto;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: .45rem; border: 1px solid var(--line);
+      border-radius: 999px; padding: .35rem .75rem; font-size: .72rem; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--gold); background: rgba(232,192,125,.08);
+    }
+    .pill .dot { width: .45rem; height: .45rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.4rem); line-height: .95; letter-spacing: -.04em;
+      margin: 1rem 0 .55rem; font-weight: 800;
+    }
+    .hero .role {
+      color: var(--gold); font-size: .95rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+    }
+    .hero .sub { color: var(--muted); max-width: 34rem; line-height: 1.65; margin: 1rem 0 1.35rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.5rem; }
+    .tag {
+      border: 1px solid rgba(255,255,255,.12); border-radius: .55rem; padding: .35rem .65rem;
+      font-size: .72rem; letter-spacing: .06em; color: #d6d3d1; background: var(--soft);
+    }
+    .cta { display: flex; gap: .7rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+      border-radius: 999px; padding: .85rem 1.2rem; font-weight: 600; font-size: .88rem;
+      border: 1px solid var(--line); transition: .2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b, #b45309); border-color: transparent; color: #111;
+    }
+    .btn-primary:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .portrait {
+      position: relative; border-radius: 1.5rem; overflow: hidden; min-height: 420px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 70% 30%, rgba(245,158,11,.2), transparent 45%),
+        linear-gradient(160deg, #15151f, #0b0b12);
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+    .portrait img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .92;
+      mix-blend-mode: lighten; filter: saturate(.9) contrast(1.05);
+    }
+    .portrait .hud {
+      position: absolute; left: 1rem; right: 1rem; bottom: 1rem; padding: .9rem 1rem;
+      border-radius: .9rem; background: rgba(0,0,0,.45); border: 1px solid var(--line);
+      backdrop-filter: blur(8px); font-size: .8rem; color: var(--muted);
+    }
+    .portrait .hud b { color: var(--ink); display: block; margin-bottom: .2rem; }
+    .stack { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 5rem; display: grid; gap: 1.1rem; }
+    .card {
+      position: relative; border-radius: 1.25rem; padding: 1.6rem 1.5rem 1.5rem;
+      background: linear-gradient(165deg, rgba(40,32,24,.55), rgba(12,12,18,.85));
+      border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: -40% auto auto -20%; width: 280px; height: 180px;
+      background: radial-gradient(circle, rgba(245,158,11,.18), transparent 70%); pointer-events: none;
+    }
+    .card .kicker {
+      font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .55rem;
+    }
+    .card h2 {
+      margin: 0 0 .85rem; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.02em; font-weight: 800;
+      text-shadow: 0 0 30px rgba(232,192,125,.25);
+    }
+    .card .num {
+      position: absolute; right: 1.2rem; top: 1.1rem; font-size: 2.4rem; font-weight: 800;
+      color: rgba(232,192,125,.28); letter-spacing: -.04em;
+    }
+    .card p { color: var(--muted); line-height: 1.7; margin: 0 0 1rem; max-width: 48rem; }
+    .card p strong { color: #fde68a; font-weight: 600; }
+    .chips { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .chip {
+      border-radius: 999px; border: 1px solid rgba(255,255,255,.12); padding: .35rem .7rem;
+      font-size: .72rem; letter-spacing: .05em; color: #e7e5e4; background: rgba(255,255,255,.04);
+    }
+    .skills { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem 1.25rem; }
+    .skills h3 {
+      margin: 0 0 .45rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+    }
+    .edu-grid { display: grid; gap: .75rem; }
+    .edu-item {
+      display: grid; grid-template-columns: 1fr auto; gap: .75rem; align-items: start;
+      padding: .85rem 0; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .edu-item:first-child { border-top: 0; padding-top: 0; }
+    .edu-item h3 { margin: 0 0 .2rem; font-size: 1.05rem; }
+    .edu-item .meta { color: var(--muted); font-size: .85rem; }
+    .edu-item .when { color: var(--gold); font-size: .78rem; white-space: nowrap; }
+    .metrics {
+      display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .75rem; margin-top: .5rem;
+    }
+    .metric {
+      text-align: center; padding: 1rem .5rem; border-radius: .9rem; background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .metric b {
+      display: block; font-size: clamp(1.6rem, 3vw, 2.2rem); color: #fff; margin-bottom: .25rem;
+      text-shadow: 0 0 24px rgba(245,158,11,.35);
+    }
+    .metric span { color: var(--muted); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .75rem; }
+    .proj {
+      border: 1px solid rgba(255,255,255,.08); border-radius: .9rem; padding: 1rem;
+      background: rgba(0,0,0,.22); transition: .2s ease;
+    }
+    .proj:hover { border-color: var(--line); transform: translateY(-2px); }
+    .proj h3 { margin: 0 0 .35rem; font-size: 1rem; }
+    .proj p { margin: 0; font-size: .88rem; color: var(--muted); line-height: 1.5; }
+    footer {
+      text-align: center; color: #6b6560; font-size: .8rem; padding: 2rem 1rem 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 5.5rem; }
+      .portrait { min-height: 300px; order: -1; }
+      .skills, .metrics, .projects { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .skills, .metrics, .projects { grid-template-columns: 1fr; }
+      .nav .hide-sm { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="stars"></div>
+  <div class="wrap">
+    <header class="nav" id="nav">
+      <a class="brand" href="#top">CINEMATIC · SAI</a>
+      <div>
+        <a class="hide-sm" href="#about">About</a>
+        <a class="hide-sm" href="#skills">Skills</a>
+        <a class="hide-sm" href="#education">Education</a>
+        <a class="hide-sm" href="#numbers">Numbers</a>
+        <a href="#work">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <div class="pill"><span class="dot"></span> Open to work</div>
+          <h1>SAI SIRI<br>BANDARU</h1>
+          <div class="role">Financial Analyst · FP&A · Full-stack Excel</div>
+          <p class="sub">Variance packs and forecasts that operators can run the week on. MS Business Analytics and MBA Finance. I partner with operations to explain volume and cost movement, reforecast staffing, and put a defendable number on capital asks.</p>
+          <div class="tags">
+            <span class="tag">EXCEL</span>
+            <span class="tag">POWER BI</span>
+            <span class="tag">TABLEAU</span>
+            <span class="tag">SQL</span>
+            <span class="tag">NETSUITE</span>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="#work">View projects</a>
+            <a class="btn btn-ghost" href="https://github.com/saisiri-bandaru" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <aside class="portrait" aria-label="Portrait panel">
+          <img src="monogram.jpg" alt="Sai Siri Bandaru monogram" />
+          <div class="hud">
+            <b>System map · FP&A</b>
+            Close · Forecast · Cash · Capital
+          </div>
+        </aside>
+      </section>
+
+      <div class="stack">
+        <article class="card" id="about">
+          <div class="num">01</div>
+          <div class="kicker">About · Profile</div>
+          <h2>WHO I AM</h2>
+          <p>
+            Financial Analyst with <strong>4+ years</strong> of FP&A-style analysis across banking and operating businesses.
+            Currently supporting operations finance at <strong>PNC Financial Services</strong>.
+            Earlier: budget-variance and scholarship forecasts at <strong>upGrad</strong>, sales-side MIS and working capital at <strong>BYJU'S</strong>,
+            and EBITDA / leverage reporting at <strong>BSNL</strong>.
+            Through-line: take messy operational data, put it in a controlled model, and hand executives a clean story they can defend.
+          </p>
+          <div class="chips">
+            <span class="chip">FP&A</span>
+            <span class="chip">OPS FINANCE</span>
+            <span class="chip">FORECASTING</span>
+            <span class="chip">VARIANCE</span>
+            <span class="chip">CASH & WC</span>
+          </div>
+        </article>
+
+        <article class="card" id="skills">
+          <div class="num">02</div>
+          <div class="kicker">About · Arsenal</div>
+          <h2>TECHNICAL SKILLS</h2>
+          <div class="skills">
+            <div>
+              <h3>Analysis</h3>
+              <div class="chips">
+                <span class="chip">Advanced Excel</span>
+                <span class="chip">Variance analysis</span>
+                <span class="chip">Driver forecasting</span>
+                <span class="chip">DCF / NPV / IRR</span>
+              </div>
+            </div>
+            <div>
+              <h3>Visualization</h3>
+              <div class="chips">
+                <span class="chip">Power BI</span>
+                <span class="chip">Tableau</span>
+                <span class="chip">Executive dashboards</span>
+                <span class="chip">KPI design</span>
+              </div>
+            </div>
+            <div>
+              <h3>Systems</h3>
+              <div class="chips">
+                <span class="chip">NetSuite</span>
+                <span class="chip">SAP</span>
+                <span class="chip">Oracle ERP</span>
+                <span class="chip">Banner</span>
+              </div>
+            </div>
+            <div>
+              <h3>Data</h3>
+              <div class="chips">
+                <span class="chip">SQL</span>
+                <span class="chip">Pivots</span>
+                <span class="chip">Lookups</span>
+                <span class="chip">Reporting automation</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="education">
+          <div class="num">03</div>
+          <div class="kicker">About · Journey</div>
+          <h2>EDUCATION</h2>
+          <div class="edu-grid">
+            <div class="edu-item">
+              <div>
+                <h3>M.S. Business Analytics</h3>
+                <div class="meta">University of New Haven</div>
+              </div>
+              <div class="when">Aug 2023 — May 2025</div>
+            </div>
+            <div class="edu-item">
+              <div>
+                <h3>MBA, Accounting & Finance</h3>
+                <div class="meta">JNTU Kakinada</div>
+              </div>
+              <div class="when">Jul 2018 — Dec 2020</div>
+            </div>
+            <div class="edu-item">
+              <div>
+                <h3>Bachelor's, Accounting & Finance</h3>
+                <div class="meta">Acharya Nagarjuna University</div>
+              </div>
+              <div class="when">Aug 2015 — May 2018</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="numbers">
+          <div class="num">04</div>
+          <div class="kicker">About · Impact</div>
+          <h2>BY THE NUMBERS</h2>
+          <div class="metrics">
+            <div class="metric"><b>4+</b><span>Years experience</span></div>
+            <div class="metric"><b>2%</b><span>Throughput lift (PNC)</span></div>
+            <div class="metric"><b>MS+MBA</b><span>Dual quant stack</span></div>
+            <div class="metric"><b>10</b><span>Public models</span></div>
+          </div>
+        </article>
+
+        <article class="card" id="work">
+          <div class="num">05</div>
+          <div class="kicker">Selected work</div>
+          <h2>FEATURED MODELS</h2>
+          <p>Yellow cells with blue font are inputs. Change a driver — the output story should move. Sample company: Northline Consumer Products.</p>
+          <div class="projects">
+            <a class="proj" href="https://github.com/saisiri-bandaru/fpna-variance-dashboard" target="_blank" rel="noopener">
+              <h3>FP&A variance dashboard</h3>
+              <p>Why did margin miss — rate or volume?</p>
+            </a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/cost-accounting-workbook" target="_blank" rel="noopener">
+              <h3>Cost accounting workbook</h3>
+              <p>Purchasing vs the floor on plant variances.</p>
+            </a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/thirteen-week-cash-forecast" target="_blank" rel="noopener">
+              <h3>13-week cash forecast</h3>
+              <p>Payroll and vendors if receipts slip a week.</p>
+            </a>
+            <a class="proj" href="https://github.com/saisiri-bandaru/dcf-valuation-model" target="_blank" rel="noopener">
+              <h3>DCF valuation</h3>
+              <p>Unlevered FCF, WACC, NPV and IRR.</p>
+            </a>
+          </div>
+        </article>
+
+        <article class="card" id="contact">
+          <div class="num">06</div>
+          <div class="kicker">Contact</div>
+          <h2>LET'S TALK</h2>
+          <p>Open to FP&A, operations finance, and analytics-heavy finance roles.</p>
+          <div class="chips" style="margin-bottom:1.1rem">
+            <a class="chip" href="mailto:saisiri.bandaru12@gmail.com">saisiri.bandaru12@gmail.com</a>
+            <a class="chip" href="tel:+12035339355">203.533.9355</a>
+            <a class="chip" href="https://www.linkedin.com/in/bandarusaisiri" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="chip" href="https://github.com/saisiri-bandaru" target="_blank" rel="noopener">GitHub</a>
+            <a class="chip" href="https://saisiri-bandaru.github.io" target="_blank" rel="noopener">Main portfolio</a>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://saisiri-bandaru.github.io/Sai_Siri_Bandaru_Analyst_Portfolio.pdf">Recruiter packet</a>
+            <a class="btn btn-ghost" href="mailto:saisiri.bandaru12@gmail.com">Email me</a>
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer>© 2026 Sai Siri Bandaru · Cinematic portfolio (separate from github.io)</footer>
+  </div>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
+  </script>
+</body>
+</html>
