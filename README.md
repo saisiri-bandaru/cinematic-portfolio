@@ -1,7 +1,9 @@
-# Cinematic portfolio — Sai Siri Bandaru
+# Cinematic portfolio (redirect)
 
-Separate FP&A portfolio inspired by a cinematic dark UI (starfield hero + glass cards).
+This repo used to host a separate cinematic site.
 
-Live (after Pages is enabled): https://saisiri-bandaru.github.io/cinematic-portfolio/
+It now redirects to the main portfolio:
 
-Main portfolio remains: https://saisiri-bandaru.github.io/
+**https://saisiri-bandaru.github.io/**
+
+Legacy Pages URL (`/cinematic-portfolio/`) also sends visitors there.
