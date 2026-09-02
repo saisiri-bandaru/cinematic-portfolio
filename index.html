@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sai Siri Bandaru — Cinematic Portfolio</title>
-  <meta name="description" content="Cinematic portfolio for Sai Siri Bandaru — Financial Analyst, FP&A and operations finance." />
+  <title>Sai Siri Bandaru | Financial Analyst, FP&A & Operations Finance</title>
+  <meta name="description" content="Financial Analyst at PNC. FP&A and operations finance. Open to work across the United States." />
   <meta name="theme-color" content="#07070c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,42 +47,16 @@
       text-transform: uppercase; color: var(--gold); background: rgba(232,192,125,.08);
     }
     .open i { width: .5rem; height: .5rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 12px #22c55e; }
-    .glitch {
-      position: relative; margin: 1rem 0 .5rem; font-size: clamp(3.1rem, 8.5vw, 5.6rem);
+    .name {
+      margin: 1rem 0 .5rem; font-size: clamp(3.1rem, 8.5vw, 5.6rem);
       font-weight: 800; letter-spacing: -.045em; line-height: .92; text-transform: uppercase;
     }
-    .glitch span { display: block; }
-    .glitch::before, .glitch::after {
-      content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%; overflow: hidden;
-      clip-path: inset(0 0 0 0);
-    }
-    .glitch::before {
-      color: #67e8f9; transform: translate(2px, -1px); opacity: .7; mix-blend-mode: screen;
-      animation: glitchTop 2.4s infinite linear alternate-reverse;
-    }
-    .glitch::after {
-      color: #fb7185; transform: translate(-2px, 1px); opacity: .7; mix-blend-mode: screen;
-      animation: glitchBot 1.8s infinite linear alternate-reverse;
-    }
-    @keyframes glitchTop {
-      0% { clip-path: inset(0 0 85% 0); }
-      20% { clip-path: inset(10% 0 60% 0); }
-      40% { clip-path: inset(40% 0 30% 0); }
-      60% { clip-path: inset(70% 0 5% 0); }
-      80% { clip-path: inset(20% 0 50% 0); }
-      100% { clip-path: inset(0 0 80% 0); }
-    }
-    @keyframes glitchBot {
-      0% { clip-path: inset(80% 0 0 0); }
-      25% { clip-path: inset(30% 0 40% 0); }
-      50% { clip-path: inset(55% 0 10% 0); }
-      75% { clip-path: inset(5% 0 70% 0); }
-      100% { clip-path: inset(65% 0 5% 0); }
-    }
+    .name span { display: block; }
     .role {
       color: var(--gold); font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600;
     }
-    .sub { color: var(--muted); max-width: 34rem; line-height: 1.65; margin: 1rem 0 1.25rem; }
+    .employer { color: var(--ink); font-size: .92rem; margin-top: .45rem; font-weight: 600; }
+    .sub { color: var(--muted); max-width: 34rem; line-height: 1.65; margin: .85rem 0 1.25rem; }
     .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.4rem; }
     .tag {
       border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: .35rem .7rem;
@@ -153,13 +127,14 @@
     .skills { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 1.2rem; }
     .skills h3 { margin: 0 0 .4rem; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
     .edu-item {
-      display: grid; grid-template-columns: 6.5rem 1fr; gap: .8rem; padding: .8rem 0;
+      display: grid; grid-template-columns: 7.2rem 1fr; gap: .8rem; padding: .8rem 0;
       border-top: 1px solid rgba(255,255,255,.08);
     }
     .edu-item:first-child { border-top: 0; padding-top: 0; }
     .edu-item .when { color: var(--gold); font-size: .75rem; letter-spacing: .04em; }
     .edu-item h3 { margin: 0 0 .2rem; font-size: 1.02rem; }
     .edu-item .meta { color: var(--muted); font-size: .85rem; }
+    .edu-item .note { color: var(--muted); font-size: .85rem; margin-top: .25rem; line-height: 1.45; }
     .metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .7rem; }
     .metric {
       text-align: center; padding: 1rem .4rem; border-radius: .85rem; background: rgba(0,0,0,.28);
@@ -195,13 +170,14 @@
   <canvas id="particles"></canvas>
   <div class="wrap">
     <header class="nav" id="nav">
-      <a class="brand" href="#top">CINEMATIC PORTFOLIO</a>
+      <a class="brand" href="#top">SAI SIRI BANDARU</a>
       <nav class="nav-links">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
         <a href="#numbers">Impact</a>
-        <a href="#work">Projects</a>
+        <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -209,28 +185,28 @@
     <main id="top">
       <section class="hero">
         <div>
-          <div class="open"><i></i> Open to work</div>
-          <h1 class="glitch" data-text="SAI SIRI BANDARU"><span>SAI SIRI</span><span>BANDARU</span></h1>
-          <div class="role">Financial Analyst · FP&amp;A · Operations Finance</div>
-          <p class="sub">Variance packs and forecasts that operators can run the week on. MS Business Analytics and MBA Finance. I partner with operations to explain volume and cost movement, reforecast staffing, and put a defendable number on capital asks.</p>
+          <div class="open"><i></i> Open to work across the USA</div>
+          <h1 class="name"><span>SAI SIRI</span><span>BANDARU</span></h1>
+          <div class="role">Financial Analyst · FP&A · Operations Finance</div>
+          <div class="employer">PNC Financial Services</div>
+          <p class="sub">Variance packs and forecasts that operators can run the week on. MS Business Analytics and MBA Finance. I partner with operations to explain volume and cost movement, reforecast staffing, and put a defendable number on capital asks. Open to FP&A and operations finance roles across the United States.</p>
           <div class="tags">
             <span class="tag">EXCEL</span>
             <span class="tag">POWER BI</span>
             <span class="tag">TABLEAU</span>
-            <span class="tag">SQL</span>
             <span class="tag">NETSUITE</span>
-            <span class="tag">+ OTHER</span>
+            <span class="tag">SAP / ORACLE</span>
           </div>
           <div class="cta">
-            <a class="btn btn-primary" href="#work">View projects</a>
-            <a class="btn btn-solid" href="https://github.com/saisiri-bandaru" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-solid" href="https://saisiri-bandaru.github.io/Sai_Siri_Bandaru_Analyst_Portfolio.pdf">Recruiter packet</a>
+            <a class="btn btn-primary" href="#work">View models</a>
           </div>
         </div>
         <aside class="stage" aria-label="Portrait">
           <img src="hero.jpg" alt="Sai Siri Bandaru" />
           <div class="hud">
             <b>Sai Siri Bandaru</b>
-            Financial Analyst · Open to FP&amp;A roles
+            Financial Analyst · Open to work across the USA
           </div>
         </aside>
       </section>
@@ -241,34 +217,72 @@
           <div class="kicker">About · Profile</div>
           <h2>WHO I AM</h2>
           <p>
-            Financial Analyst with <span class="hi">4+ years</span> of FP&amp;A-style analysis across banking and operating businesses.
+            Financial Analyst with <span class="hi">4+ years</span> of FP&A-style analysis across banking and operating businesses.
             Currently supporting operations finance at <span class="hi">PNC Financial Services</span>.
             Earlier: budget-variance and scholarship forecasts at upGrad, sales-side MIS and working capital at BYJU'S,
             and EBITDA / leverage reporting at BSNL. Supported a <span class="hi">2% throughput lift</span> at PNC through process and cost work.
           </p>
           <div class="chips">
-            <span class="chip">FP&amp;A</span>
+            <span class="chip">FP&A</span>
             <span class="chip">OPS FINANCE</span>
             <span class="chip">FORECASTING</span>
             <span class="chip">VARIANCE</span>
-            <span class="chip">CASH &amp; WC</span>
+            <span class="chip">CASH & WC</span>
+          </div>
+        </article>
+
+        <article class="card" id="experience">
+          <div class="num">02</div>
+          <div class="kicker">About · Experience</div>
+          <h2>WHERE I'VE BEEN</h2>
+          <div class="edu-item">
+            <div class="when">JUN 2025 — NOW</div>
+            <div>
+              <h3>Financial Analyst</h3>
+              <div class="meta">PNC Financial Services</div>
+              <div class="note">Operations finance: throughput and unit cost, executive KPIs, volume models, monthly variance commentary, quarterly staffing reforecasts.</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="when">APR 2022 — JUL 2023</div>
+            <div>
+              <h3>Financial Analyst</h3>
+              <div class="meta">upGrad</div>
+              <div class="note">Budget-vs-actual packs, tuition / scholarship forecasts, NetSuite and Banner automation, Power BI / Tableau, NPV and IRR on capital projects.</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="when">JAN 2021 — MAR 2022</div>
+            <div>
+              <h3>Sales Analyst</h3>
+              <div class="meta">BYJU'S</div>
+              <div class="note">Department budgets, standard-cost variance, AP/AR and working capital, ROI and payback, monthly MIS on margin and capacity.</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="when">JAN 2019 — AUG 2019</div>
+            <div>
+              <h3>Junior Financial Analyst</h3>
+              <div class="meta">BSNL</div>
+              <div class="note">Overhead and labor variance, daily cash for procurement and capex, EBITDA and leverage MIS, SAP / Oracle extraction.</div>
+            </div>
           </div>
         </article>
 
         <article class="card" id="skills">
-          <div class="num">02</div>
-          <div class="kicker">About · Arsenal</div>
+          <div class="num">03</div>
+          <div class="kicker">About · Toolkit</div>
           <h2>TECHNICAL SKILLS</h2>
           <div class="skills">
             <div>
-              <h3>Analysis</h3>
+              <h3>Shown in the models</h3>
               <div class="chips">
                 <span class="chip">Advanced Excel</span><span class="chip">Variance analysis</span>
                 <span class="chip">Driver forecasting</span><span class="chip">DCF / NPV / IRR</span>
               </div>
             </div>
             <div>
-              <h3>Visualization</h3>
+              <h3>Used on the job</h3>
               <div class="chips">
                 <span class="chip">Power BI</span><span class="chip">Tableau</span>
                 <span class="chip">Executive dashboards</span><span class="chip">KPI design</span>
@@ -284,7 +298,7 @@
             <div>
               <h3>Data</h3>
               <div class="chips">
-                <span class="chip">SQL</span><span class="chip">Pivots</span>
+                <span class="chip">SQL (on the job)</span><span class="chip">Pivots</span>
                 <span class="chip">Lookups</span><span class="chip">Reporting automation</span>
               </div>
             </div>
@@ -292,8 +306,8 @@
         </article>
 
         <article class="card" id="education">
-          <div class="num">03</div>
-          <div class="kicker">About · Journey</div>
+          <div class="num">04</div>
+          <div class="kicker">About · Education</div>
           <h2>EDUCATION</h2>
           <div class="edu-item">
             <div class="when">MAY 2025</div>
@@ -305,82 +319,80 @@
           <div class="edu-item">
             <div class="when">DEC 2020</div>
             <div>
-              <h3>MBA, Accounting &amp; Finance</h3>
+              <h3>MBA, Accounting & Finance</h3>
               <div class="meta">JNTU Kakinada</div>
             </div>
           </div>
           <div class="edu-item">
             <div class="when">MAY 2018</div>
             <div>
-              <h3>Bachelor's, Accounting &amp; Finance</h3>
+              <h3>Bachelor's, Accounting & Finance</h3>
               <div class="meta">Acharya Nagarjuna University</div>
             </div>
           </div>
         </article>
 
         <article class="card" id="numbers">
-          <div class="num">04</div>
+          <div class="num">05</div>
           <div class="kicker">About · Impact</div>
           <h2>BY THE NUMBERS</h2>
           <div class="metrics">
             <div class="metric"><b>4+</b><span>Years experience</span></div>
-            <div class="metric"><b>2%</b><span>Throughput lift</span></div>
-            <div class="metric"><b>MS+MBA</b><span>Dual quant stack</span></div>
-            <div class="metric"><b>10</b><span>Public models</span></div>
+            <div class="metric"><b>2%</b><span>Throughput lift at PNC</span></div>
+            <div class="metric"><b>4</b><span>Models to open first</span></div>
+            <div class="metric"><b>USA</b><span>Open to work nationwide</span></div>
           </div>
         </article>
 
         <article class="card" id="work">
-          <div class="num">05</div>
+          <div class="num">06</div>
           <div class="kicker">Selected work</div>
           <h2>FEATURED MODELS</h2>
-          <p>Yellow cells with blue font are inputs. Change a driver — the output story should move.</p>
+          <p>Yellow cells with blue font are inputs. Change a driver — the output story should move. Sample figures are fictional (Northline Consumer Products).</p>
           <div class="projects">
             <a class="proj" href="https://github.com/saisiri-bandaru/fpna-variance-dashboard" target="_blank" rel="noopener">
-              <h3>FP&amp;A variance dashboard</h3>
+              <h3>FP&A variance dashboard</h3>
               <p>Why did margin miss — rate or volume?</p>
             </a>
             <a class="proj" href="https://github.com/saisiri-bandaru/cost-accounting-workbook" target="_blank" rel="noopener">
               <h3>Cost accounting workbook</h3>
-              <p>Purchasing vs the floor on plant variances.</p>
+              <p>Does the plant variance sit with purchasing or the floor?</p>
             </a>
             <a class="proj" href="https://github.com/saisiri-bandaru/thirteen-week-cash-forecast" target="_blank" rel="noopener">
               <h3>13-week cash forecast</h3>
-              <p>Payroll and vendors if receipts slip a week.</p>
+              <p>Can payroll and vendors clear if receipts slip one week?</p>
             </a>
-            <a class="proj" href="https://github.com/saisiri-bandaru/dcf-valuation-model" target="_blank" rel="noopener">
-              <h3>DCF valuation</h3>
-              <p>Unlevered FCF, WACC, NPV and IRR.</p>
+            <a class="proj" href="https://github.com/saisiri-bandaru/driver-based-forecast" target="_blank" rel="noopener">
+              <h3>Driver-based forecast</h3>
+              <p>If volume or cost moves, what happens to the P&L vs plan?</p>
             </a>
           </div>
         </article>
 
         <article class="card" id="contact">
-          <div class="num">06</div>
+          <div class="num">07</div>
           <div class="kicker">Contact</div>
           <h2>LET'S TALK</h2>
-          <p>Open to FP&amp;A, operations finance, and analytics-heavy finance roles.</p>
+          <p>Open to FP&A, operations finance, and analytics-heavy finance roles across the United States.</p>
           <div class="chips" style="margin-bottom:1.1rem">
-            <a class="chip" href="mailto:saisiri.bandaru12@gmail.com">saisiri.bandaru12@gmail.com</a>
+            <a class="chip" href="mailto:bandarusaisiri1207@gmail.com">bandarusaisiri1207@gmail.com</a>
             <a class="chip" href="tel:+12035339355">203.533.9355</a>
             <a class="chip" href="https://www.linkedin.com/in/bandarusaisiri" target="_blank" rel="noopener">LinkedIn</a>
             <a class="chip" href="https://github.com/saisiri-bandaru" target="_blank" rel="noopener">GitHub</a>
-            <a class="chip" href="https://saisiri-bandaru.github.io" target="_blank" rel="noopener">Main portfolio</a>
           </div>
           <div class="cta">
             <a class="btn btn-solid" href="https://saisiri-bandaru.github.io/Sai_Siri_Bandaru_Analyst_Portfolio.pdf">Recruiter packet</a>
-            <a class="btn btn-primary" href="mailto:saisiri.bandaru12@gmail.com">Email me</a>
+            <a class="btn btn-primary" href="mailto:bandarusaisiri1207@gmail.com">Email me</a>
           </div>
         </article>
       </div>
     </main>
-    <footer>© 2026 Sai Siri Bandaru · Cinematic portfolio</footer>
+    <footer>© 2026 Sai Siri Bandaru · FP&A and operations finance</footer>
   </div>
   <script>
     const nav = document.getElementById('nav');
     addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
 
-    // Particle field (reel-style)
     const c = document.getElementById('particles');
     const ctx = c.getContext('2d');
     let w, h, dots;
